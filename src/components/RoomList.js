@@ -11,7 +11,7 @@ class RoomList extends Component {
       handleSubmit(e) {
         e.preventDefault();
         this.roomsRef.push({
-        this.state.newRoomName
+        newRoomName: e.target.value
         });
       }
       componentDidMount() {
@@ -28,9 +28,9 @@ class RoomList extends Component {
           this.state.rooms.map((room, index) =>
           <div key={index}>{room.name}</div>
         )}
-        <form onSubmit={ (e) => this.handleSubmit(e) }>
-        <input type="text" value={ this.state.newRoomName } onChange={ (e) => this.handleSubmit(e)}/>
-        <input type="submit" />
+        <form onSubmit={ (e) => this.handleSubmit(this.state.newRoomName) }>
+        <input type="text" value={ this.state.newRoomName }/>
+        <input type="submit"/>
         </form>
         </div>
       );
