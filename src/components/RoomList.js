@@ -9,9 +9,11 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
   handleSubmit(newRoomName) {
+    if (!this.state.newRoomName) { return }
     this.roomsRef.push({
       name:newRoomName
     });
+    this.setState({ newRoomName: '' });
   }
   handleChange(e){
     this.setState({ newRoomName: e.target.value })
