@@ -8,7 +8,7 @@ class MessageList extends Component {
       username: '',
       content: '',
       sentAt: '',
-      roomId: ''
+      messageId: ''
     };
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
