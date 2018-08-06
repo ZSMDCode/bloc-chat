@@ -20,7 +20,7 @@ class App extends Component {
     };
   this.handleRoomClick = this.handleRoomClick.bind(this);
   }
-  handleRoomClick(room){
+  handleRoomClick = (room) => {
       this.setstate({ activeRoom: room})
       console.log(this.state.activeRoom);
     }
