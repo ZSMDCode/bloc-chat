@@ -19,10 +19,6 @@ class RoomList extends Component {
   handleChange(e){
     this.setState({ newRoomName: e.target.value })
   }
-  handleRoomClick(room){
-    this.setstate({ activeRoom: room})
-    console.log(this.state.activeRoom);
-  }
   componentDidMount() {
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();

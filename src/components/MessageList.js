@@ -5,7 +5,7 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-
+      newMessage: '',
       username: '',
       content: '',
       sentAt: '',
@@ -18,14 +18,13 @@ componentDidMount() {
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      console.log(message);
       this.setState({ messages: this.state.messages.concat( message ) })
     });
   }
 
 handleSubmit(newMessageName) {
     if (!this.state.newMessageName) { return }
-    console.log(newMessageName);
+    console.log(this.state.newMessage);
     console.log(this.props.roomId);
     this.setState ({
       username: this.state.username,
@@ -37,10 +36,14 @@ handleSubmit(newMessageName) {
       name:newMessageName
     });
     this.setState({ newMessageName: '' });
-    console.log(this.state.username)
-  }
+    console.log(this.state.username);
+    console.log(this.state.content);
+    console.log(this.state.sentAt);
+    console.log(this.state.roomId);
+    }
 handleChange(e){
-    this.setState({ newMessageName: e.target.value })
+    this.setState({
+      newMessageName: e.target.value })
   }
   render() {
     return (
