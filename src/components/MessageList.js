@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 class MessageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       messages: [],
-      newMessageName: '',
+
       username: '',
       content: '',
       sentAt: '',
-      messageId: ''
+      messageId: '',
+      roomId: ''
     };
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
@@ -24,10 +26,18 @@ componentDidMount() {
 handleSubmit(newMessageName) {
     if (!this.state.newMessageName) { return }
     console.log(newMessageName);
+    console.log(this.props.roomId);
+    this.setState ({
+      username: this.state.username,
+      content: this.state.content,
+      sentAt: firebase.database.ServerValue.TIMESTAMP,
+      roomId: this.state.roomId
+    });
     this.messagesRef.push({
       name:newMessageName
     });
     this.setState({ newMessageName: '' });
+    console.log(this.state.username)
   }
 handleChange(e){
     this.setState({ newMessageName: e.target.value })

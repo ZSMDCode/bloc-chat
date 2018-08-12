@@ -18,17 +18,16 @@ class App extends Component {
     this.state = {
       activeRoom: ''
     };
-  this.handleRoomClick = this.handleRoomClick.bind(this);
   }
   handleRoomClick = (room) => {
-      this.setstate({ activeRoom: room})
+      this.setState({ activeRoom: room})
       console.log(this.state.activeRoom);
     }
     render() {
       return (
         <div className="App">
         <RoomList firebase={firebase} handleRoomClick={this.handleRoomClick}/>
-        <MessageList firebase={firebase} activeRoom={this.state.active}/>
+        <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
         </div>
       );
     }
