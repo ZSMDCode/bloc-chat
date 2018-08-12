@@ -26,20 +26,10 @@ handleSubmit(newMessageName) {
     if (!this.state.newMessageName) { return }
     console.log(this.state.newMessage);
     console.log(this.props.roomId);
-    this.setState ({
-      username: this.state.username,
-      content: this.state.content,
-      sentAt: firebase.database.ServerValue.TIMESTAMP,
-      roomId: this.state.roomId
-    });
     this.messagesRef.push({
       name:newMessageName
     });
-    this.setState({ newMessageName: '' });
-    console.log(this.state.username);
-    console.log(this.state.content);
-    console.log(this.state.sentAt);
-    console.log(this.state.roomId);
+
     }
 handleChange(e){
     this.setState({
