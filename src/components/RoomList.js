@@ -31,7 +31,7 @@ class RoomList extends Component {
       <div>
       {
         this.state.rooms.map((room, index) =>
-        <div key={index} onClick={() => this.props.handleRoomClick(room)}>{room.name}</div>
+        <div key={index} onClick={() => this.props.handleRoomClick(room.key)}>{room.name}</div>
       )}
       <form onSubmit={ (e) => {
         e.preventDefault();
