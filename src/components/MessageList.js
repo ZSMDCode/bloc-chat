@@ -15,21 +15,13 @@ class MessageList extends Component {
     });
   }
   render() {
-    let messageContent = this.state.messages.map((message, index) => {
-      if (message.roomId === this.props.activeRoom){
-        return <div key={index}>{message.content}</div>
-      }
-      else
-      {
-        return undefined
-      }
-    })
-    return (
-      <div>
-      <ul>
-      {messageContent}
-      </ul>
-      </div>
-    )}
-  }
-  export default MessageList;
+       return (
+         <div>
+         {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message, index) =>
+        <li key={index}>{message.content}</li>
+        )
+        }
+         </div>
+     )}
+     }
+     export default MessageList;
