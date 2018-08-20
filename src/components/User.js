@@ -27,6 +27,7 @@ class User extends Component {
       <div>
       <input type="button" value={"Sign in"} onClick={() => {this.authenticate()}}/>
       <input type="button" value={"Sign out"} onClick={() => {this.signOut()}}/>
+        <h2>{this.props.activeUser === null ? '' : "Hello " + this.props.activeUser.displayName }</h2>
       </div>
     );
   }
