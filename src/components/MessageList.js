@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 class MessageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       messages: [],
+      newMessage: '',
     };
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
@@ -14,6 +16,22 @@ class MessageList extends Component {
       this.setState({ messages: this.state.messages.concat( message ) })
     });
   }
+
+  handleChange(e){
+    this.setState({ messages: e.target.value })
+  }
+  newMessage(newMessage) {
+      if (!this.state.newMessage) { return }
+      this.messagesRef.push({
+        messages: newMessage,
+        sentAt: firebase.database.ServerValue.TIMESTAMP,
+        roomId: this.props.activeRoom,
+        user: this.props.activeUser,
+      });
+      this.setState({ newMessage: '' });
+    }
+
+
   render() {
        return (
          <div>
@@ -21,6 +39,14 @@ class MessageList extends Component {
         <li key={index}>{message.content}</li>
         )
         }
+        <form onSubmit={ (e) => {
+          e.preventDefault();
+          this.newMessage(this.state.newMessage) }
+        }>
+        <h5>Type Message: <input type="text" value=  { this.state.newMessage }  onChange={ (e) => this.handleChange(e)}/>
+  <input type="submit"/>
+  </h5>
+</form>
          </div>
      )}
      }
