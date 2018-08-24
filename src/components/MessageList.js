@@ -42,12 +42,12 @@ class MessageList extends Component {
 
         <h5>Type Message: <input type="text" value=  { this.state.newMessage }  onChange={ (e) => this.handleChange(e)}/>
   <input type="submit"/>
-  </h5>
+  </h5>        <form onSubmit={ (e) => {
+            e.preventDefault();
+            this.newMessage(this.state.newMessage) }
+          }>
+</form>
          </div>
-     )}  <form onSubmit={ (e) => {
-               e.preventDefault();
-               this.newMessage(this.state.newMessage) }
-             }>
-   </form>
+     )}
      }
      export default MessageList;
