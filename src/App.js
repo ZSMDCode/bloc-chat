@@ -30,12 +30,10 @@ class App extends Component {
   }
 
     render() {
-        console.log("active user = " + this.props.activeUser)
-        console.log("active room = " + this.props.activeRoom)
       return (
         <div className="App">
         <RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
-        <MessageList firebase={firebase} activeRoom={this.state.activeRoom} activeUser={this.state.activeUser}/>
+        <MessageList firebase={firebase} activeRoom={this.state.activeRoom} setUser={this.setUser} activeUser={this.state.activeUser}/>
         <User firebase={firebase} setUser={this.setUser} activeUser={this.state.activeUser}/>
         </div>
       );

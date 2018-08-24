@@ -22,7 +22,6 @@ class User extends Component {
     console.log("logged out")
   }
   render() {
-    console.log("active user = " + this.props.activeUser)
     return (
       <div>
       <input type="button" value={"Sign in"} onClick={() => {this.authenticate()}}/>

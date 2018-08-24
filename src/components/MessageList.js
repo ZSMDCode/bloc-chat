@@ -21,14 +21,12 @@ class MessageList extends Component {
     this.setState({ newMessage: e.target.value })
   }
   newMessage(newMessage) {
-    console.log('new message');
       this.messagesRef.push({
         content: newMessage,
         sentAt: firebase.database.ServerValue.TIMESTAMP,
         roomId: this.props.activeRoom,
-        user: this.props.activeUser
+        user: !this.props.user ? 'Guest' : this.props.user.displayName
       });
-      console.log(newMessage);
       this.setState({ newMessage: '' });
     }
 
