@@ -30,6 +30,8 @@ class App extends Component {
   }
 
     render() {
+        console.log("active user = " + this.props.activeUser)
+        console.log("active room = " + this.props.activeRoom)
       return (
         <div className="App">
         <RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
