@@ -18,16 +18,16 @@ class MessageList extends Component {
   }
 
   handleChange(e){
-    this.setState({ messages: e.target.value })
+    this.setState({ newMessage: e.target.value })
   }
   newMessage(newMessage) {
-      if (!this.state.newMessage) { return }
       this.messagesRef.push({
-        messages: newMessage,
+        content: newMessage,
         sentAt: firebase.database.ServerValue.TIMESTAMP,
         roomId: this.props.activeRoom,
-        user: this.props.activeUser,
+        user: this.props.user.displayName || 'guest',
       });
+      console.log(newMessage);
       this.setState({ newMessage: '' });
     }
 
