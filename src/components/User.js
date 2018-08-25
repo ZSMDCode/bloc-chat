@@ -9,9 +9,9 @@ class User extends Component {
   }
   componentDidMount() {
     this.props.firebase.auth().onAuthStateChanged( user => {
-    this.props.setUser(user);
-  });
-}
+      this.props.setUser(user);
+    });
+  }
   authenticate(){
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
     this.props.firebase.auth().signInWithPopup( provider );
@@ -26,7 +26,7 @@ class User extends Component {
       <div>
       <input type="button" value={"Sign in"} onClick={() => {this.authenticate()}}/>
       <input type="button" value={"Sign out"} onClick={() => {this.signOut()}}/>
-        <h2>{this.props.activeUser === null ? '' : "Hello " + this.props.activeUser.displayName }</h2>
+      <h2>{this.props.activeUser === null ? '' : "Hello " + this.props.activeUser.displayName }</h2>
       </div>
     );
   }

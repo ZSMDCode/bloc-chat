@@ -22,22 +22,22 @@ class App extends Component {
     };
   }
   handleRoomClick = (room) => {
-      this.setState({ activeRoom: room});
-    }
+    this.setState({ activeRoom: room});
+  }
 
   setUser = (user) => {
     this.setState({activeUser: user});
   }
 
-    render() {
-      return (
-        <div className="App">
-        <RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
-        <MessageList firebase={firebase} activeRoom={this.state.activeRoom} setUser={this.setUser} activeUser={this.state.activeUser}/>
-        <User firebase={firebase} setUser={this.setUser} activeUser={this.state.activeUser}/>
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div className="App">
+      <RoomList firebase={firebase} activeRoom={this.state.activeRoom} handleRoomClick={this.handleRoomClick}/>
+      <MessageList firebase={firebase} activeRoom={this.state.activeRoom} setUser={this.setUser} activeUser={this.state.activeUser}/>
+      <User firebase={firebase} setUser={this.setUser} activeUser={this.state.activeUser}/>
+      </div>
+    );
   }
+}
 
-  export default App;
+export default App;
