@@ -34,12 +34,12 @@ class MessageList extends Component {
   render() {
     return (
       <div>
-      <h4>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + '\'s Messages:'}
+
       {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message, index) =>
-        <li key={index}>{message.content}</li>
+        <li key={index}>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + ' : ' + message.content }</li>
       )
     }
-    </h4>
+
     <form onSubmit={ (e) => {
       e.preventDefault();
       this.newMessage(this.state.newMessage) }
