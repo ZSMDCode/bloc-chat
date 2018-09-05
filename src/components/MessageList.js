@@ -29,11 +29,19 @@ class MessageList extends Component {
     });
     this.setState({ newMessage: '' });
   }
+  deleteMessage(message){
+    this.messagesRef.child(message.key).remove();
+    const index = this.state.messages.indexOf(message);
+    this.state.messages.splice(index, 1);
+    this.setState({messages: this.state.messages})
+ }
   render() {
     return (
       <div>
       {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message, index) =>
-        <li key={index}>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + ' : ' + message.content }</li>
+        <li key={index}>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + ' : ' + message.content + '  '}
+          <button className="DeleteButton" onClick={ () => this.deleteMessage(message)}>Delete</button>
+        </li>
       )
     }
       <form onSubmit={ (e) => {

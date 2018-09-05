@@ -5,7 +5,8 @@ class RoomList extends Component {
     this.state = {
       rooms: [],
       newRoomName: '',
-      activeRoom: ''
+      activeRoom: '',
+      messages: [],
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
@@ -24,6 +25,7 @@ class RoomList extends Component {
     const index = this.state.rooms.indexOf(room);
     this.state.rooms.splice(index, 1);
     this.setState({rooms: this.state.rooms})
+    this.setState
   }
   componentDidMount() {
     this.roomsRef.on('child_added', snapshot => {

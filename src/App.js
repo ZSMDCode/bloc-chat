@@ -28,7 +28,6 @@ class App extends Component {
   setUser = (user) => {
     this.setState({activeUser: user});
   }
-
   render() {
     return (
       <div className="App">
