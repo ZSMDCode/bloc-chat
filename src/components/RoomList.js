@@ -19,6 +19,12 @@ class RoomList extends Component {
   handleChange(e){
     this.setState({ newRoomName: e.target.value })
   }
+  deleteRoom(room){
+    this.roomsRef.child(room.key).remove();
+    const index = this.state.rooms.indexOf(room);
+    this.state.rooms.splice(index, 1);
+    this.setState({rooms: this.state.rooms})
+  }
   componentDidMount() {
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
@@ -29,9 +35,13 @@ class RoomList extends Component {
   render() {
     return (
       <div>
+      <h1>{"Alphagility Chat Room"}</h1>
+      <h3>{"Chat Rooms - Click the Name to Enter:"}</h3>
       {
         this.state.rooms.map((room, index) =>
-        <div key={index} onClick={() => this.props.handleRoomClick(room.key)}>{room.name}</div>
+        <div key={index} onClick={() => this.props.handleRoomClick(room.key)}>{room.name}:
+        <button  onClick={ () => this.deleteRoom(room)}>Delete</button>
+        </div>
       )}
       <form onSubmit={ (e) => {
         e.preventDefault();

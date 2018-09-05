@@ -29,12 +29,9 @@ class MessageList extends Component {
     });
     this.setState({ newMessage: '' });
   }
-
-
   render() {
     return (
       <div>
-
       {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message, index) =>
         <li key={index}>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + ' : ' + message.content }</li>
       )
