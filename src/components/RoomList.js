@@ -35,12 +35,12 @@ class RoomList extends Component {
   render() {
     return (
       <div>
-      <h1>{"Alphagility Chat Room"}</h1>
+      <h1 className="Title">{"Alphagility Chat Room"}</h1>
       <h3>{"Chat Rooms - Click the Name to Enter:"}</h3>
       {
         this.state.rooms.map((room, index) =>
         <div key={index} onClick={() => this.props.handleRoomClick(room.key)}>{room.name}:
-        <button  onClick={ () => this.deleteRoom(room)}>Delete</button>
+        <button className="DeleteButton" onClick={ () => this.deleteRoom(room)}>Delete</button>
         </div>
       )}
       <form onSubmit={ (e) => {
@@ -48,7 +48,7 @@ class RoomList extends Component {
         this.handleSubmit(this.state.newRoomName) }
       }>
       <h5>Type New Room Name: <input type="text" value={ this.state.newRoomName }  onChange={ (e) => this.handleChange(e)}/>
-      <input type="submit"/>
+      <input className="SubmitButton" type="submit"/>
       </h5>
       </form>
       </div>

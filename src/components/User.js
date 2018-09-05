@@ -25,8 +25,8 @@ class User extends Component {
     return (
       <div>
       <h3>{this.props.activeUser === null ? 'Please sign in with your Google Account:' : "Current User = " + this.props.activeUser.displayName }</h3>
-      <input type="button" value={"Sign in"} onClick={() => {this.authenticate()}}/>
-      <input type="button" value={"Sign out"} onClick={() => {this.signOut()}}/>
+      <input className="SubmitButton" type="button" value={"Sign in"} onClick={() => {this.authenticate()}}/>
+      <input className="SubmitButton" type="button" value={"Sign out"} onClick={() => {this.signOut()}}/>
       </div>
     );
   }

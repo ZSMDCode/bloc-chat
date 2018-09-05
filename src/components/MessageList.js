@@ -42,7 +42,7 @@ class MessageList extends Component {
       this.newMessage(this.state.newMessage) }
     }>
     <h5>Type Message: <input type="text" value=  { this.state.newMessage }  onChange={ (e) => this.handleChange(e)}/>
-    <input type="submit"/>
+    <input className="SubmitButton" type="submit"/>
     </h5>
     </form>
     </div>

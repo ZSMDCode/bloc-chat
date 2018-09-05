@@ -1,7 +1,14 @@
+* {
+  background-color: black;
+}
+
+input {
+  background-color: white;
+}
+
 .App {
   text-align: Left;
   width:auto;
-  height: 2000px;
   color: white;
   background-color: black;
 }
@@ -26,7 +33,16 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.DeleteButton{
+  background-color: red;
+  color: white;
+}
+
+.SubmitButton{
+  background-color: blue;
+  color:white;
+}
+
+.Title{
+  text-decoration: underline overline;
 }
