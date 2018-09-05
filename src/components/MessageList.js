@@ -36,15 +36,14 @@ class MessageList extends Component {
         <li key={index}>{this.props.activeUser === null ? '' : this.props.activeUser.displayName + ' : ' + message.content }</li>
       )
     }
-
-    <form onSubmit={ (e) => {
+      <form onSubmit={ (e) => {
       e.preventDefault();
       this.newMessage(this.state.newMessage) }
-    }>
-    <h5>Type Message: <input type="text" value=  { this.state.newMessage }  onChange={ (e) => this.handleChange(e)}/>
-    <input className="SubmitButton" type="submit"/>
-    </h5>
-    </form>
+        }>
+        <h5>Type Message: <input type="text" value=  { this.state.newMessage }  onChange={ (e) => this.handleChange(e)}/>
+        {' '}<input className="SubmitButton" type="submit"/>
+        </h5>
+      </form>
     </div>
   )}
 }
